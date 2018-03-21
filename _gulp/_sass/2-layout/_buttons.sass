@@ -1,0 +1,31 @@
+/* buttons */
+
+.btn
+  display: inline-block
+  padding: 0 15px
+  margin-bottom: 0
+  font-size: rem(14)
+  font-weight: 400
+  text-align: center
+  white-space: nowrap
+  vertical-align: middle
+  touch-action: manipulation
+  cursor: pointer
+  user-select: none
+  background:
+    image: none
+    color: $color-gray
+  border: 1px solid $color-white
+  border-radius: 3px
+  height: 40px
+  line-height: 40px
+  text-decoration: none
+  transition: color 0.35s, background 0.35s, border 0.35s
+
+  &:hover, &:focus, &:active
+    outline: none
+
+  &--default
+    color: #333
+    background-color: $color-white
+    border-color: $color-gray
