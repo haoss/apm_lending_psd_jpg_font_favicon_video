@@ -3,6 +3,8 @@
 var gulp = require('gulp'),
   browserSync = require('browser-sync'),
   sass = require('gulp-sass'),
+  bourbon = require('bourbon').includePaths,
+  neat = require('bourbon-neat').includePaths,
   uncss = require('gulp-uncss'),
   autoprefixer = require('gulp-autoprefixer'),
   sourcemaps = require('gulp-sourcemaps'),
@@ -17,7 +19,7 @@ var gulp = require('gulp'),
   changed = require('gulp-changed'),
   cached = require('gulp-cached'),
   gulpif = require('gulp-if'),
-  minifycss = require('gulp-minify-css'),
+  cleanCSS = require('gulp-clean-css'),
   uglify = require('gulp-uglifyjs'),
   concat = require('gulp-concat'),
   filter = require('gulp-filter'),
@@ -54,14 +56,14 @@ gulp.task('sass', function() {
     .pipe(plumber())
     .pipe(plugins.sourcemaps.init())
     .pipe(sass({
-        includePaths: require('node-bourbon').includePaths
+        includePaths: [bourbon, neat]
       }).on('error', sass.logError))
     .pipe(autoprefixer({ browsers: ['last 2 versions'], cascade: true }))
-    .pipe(plugins.sourcemaps.write("./"))
+    .pipe(cleanCSS())
     .pipe(gulp.dest('./dist/css/'))
     .pipe(rename({ suffix: '.min', prefix : '' }))
-    .pipe(minifycss())
     .pipe(gulp.dest('./dist/css/'))
+    .pipe(plugins.sourcemaps.write("./"))
     .pipe(browserSync.reload({stream:true}));
 });
 
