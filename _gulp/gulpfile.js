@@ -56,14 +56,14 @@ gulp.task('sass', function() {
     .pipe(plumber())
     .pipe(plugins.sourcemaps.init())
     .pipe(sass({
-        includePaths: [bourbon, neat]
+        includePaths: [bourbon, neat, './node_modules/bootstrap-sass/assets/stylesheets']
       }).on('error', sass.logError))
     .pipe(autoprefixer({ browsers: ['last 2 versions'], cascade: true }))
     .pipe(cleanCSS())
+    .pipe(plugins.sourcemaps.write("./"))
     .pipe(gulp.dest('./dist/css/'))
     .pipe(rename({ suffix: '.min', prefix : '' }))
     .pipe(gulp.dest('./dist/css/'))
-    .pipe(plugins.sourcemaps.write("./"))
     .pipe(browserSync.reload({stream:true}));
 });
 
@@ -90,7 +90,8 @@ gulp.task('scripts', function() {
     './dist/js/libs/jquery/jquery-3.3.1.min.js',
     './dist/js/libs/jquery/jquery-migrate-3.0.1.min.js',
     './dist/js/libs/plugins-scroll/plugins-scroll.js',
-    './dist/js/libs/magnific-popup/jquery.magnific-popup.min.js'
+    './dist/js/libs/magnific-popup/jquery.magnific-popup.min.js',
+    './node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js'
   ])
   .pipe(concat('libs.js'))
   // .pipe(uglify()) //Minify libs.js

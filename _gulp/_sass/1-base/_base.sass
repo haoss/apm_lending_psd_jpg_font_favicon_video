@@ -114,11 +114,11 @@ a.link
 /* text align */
 .text
   &-center, &--center
-    text-align: center
+    text-align: center !important
   &-left, &--left
-    text-align: left
+    text-align: left !important
   &-right, &--right
-    text-align: right
+    text-align: right !important
 
 /* loader */
 .loader
@@ -189,6 +189,10 @@ a.link
 .section
   padding: 50px 0
   min-width: 320px
+
+.container
+  .section
+    min-width: inherit
 
 ul li
   list-style-type: disc

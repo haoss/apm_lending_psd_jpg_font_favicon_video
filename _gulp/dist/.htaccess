@@ -10,7 +10,7 @@ AddType image/svg+xml .svg
 # Compress compressible fonts
 AddOutputFilterByType DEFLATE application/x-font-ttf application/x-font-opentype image/svg+xml
 
-ExpiresActive On
+ExpiresActive Off
 ExpiresDefault "access plus 5 seconds"
 
 # Cache Images
