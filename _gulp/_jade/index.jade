@@ -2,7 +2,7 @@ doctype html
 html(lang="ru")
   
   -var active = 'Главная' //активный пункт меню, список в header.jade
-  -var pageTitle = 'Главная' + ' - siteName' //title страницы для генерации верстки  
+  -var pageTitle = 'Главная' + ' - Биржа Автозапчастей' //title страницы для генерации верстки  
 
   include ./_include/_head
       
@@ -12,9 +12,51 @@ html(lang="ru")
         .container-viewport
           .container-wrapper
             
-            button#showMenu Show Menu
+            button#showMenu.hidden Show Menu
+            
+            include ./_include/_header
+            
+            .content__container
+            
+              section.section.welcome
+                .section__container
+                  h1 Зарегистрироваться на сайте
+                  
+                  .row
+                    .col-md-4 1
+                    .col-md-3 2
+                    .col-md-5 3
+                  
+              section.section.welcome
+                .section__container
+                  h1 Уважаемые Коллеги по автобизнесу !
+                  
+              section.section.about
+                .section__container
+                  h1 О компании в цифрах
+                  
+              section.section.availability
+                .section__container
+                  h1 На складе в Киеве
+                  
+              section.section.steps
+                .section__container
+                  h1 4 шага к  сотрудничеству
+                  
+              section.section.what-say
+                .section__container
+                  h1 что о нас говорят
+                  
+              section.section.contacts.no--p
+                .section__container.section__container--fullwidth
+                  
+                  .contact__map
+                    .contact__map-marker
+                      img(src="./img/contacts-marker.png", alt="")
+                      a(href="#!").btn Хочу купить
         
             include ./_include/_footer
+            div(style="background: #000; height: 1000px")
                   
       nav.outer-nav.left
         .outer-nav__phones 0 800 987 65 43
@@ -27,8 +69,6 @@ html(lang="ru")
           a(href="#!") отзывы
           a(href="#!") контакты
         .outer-nav__share share
-          
-        
     
     
     //[if gte IE 9]

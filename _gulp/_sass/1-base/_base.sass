@@ -38,48 +38,55 @@ body
 //  Typography
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6
   color: $primary-color
-  font-weight: bold
+  font-weight: normal
+  font-family: $font-roboto
   text-decoration: none
-  margin: 0 0 15px 0
+  margin: 0 0 26px 0
 
 .h1, h1
-  font-size: 21px
-  line-height: 1.05
+  font-size: rem(50)
+  line-height: 1
   letter-spacing: -1px
-  margin-bottom: 25px
+  font-family: $font-intro
 
 .h2, h2
-  font-size: 18px
+  font-size: rem(30)
   line-height: 1.14
-  margin-bottom: 20px
+  font-family: $font-intro
 
 .h3, h3
-  font-size: 16px
+  font-size: rem(25)
   line-height: 1.38
+  &--intro
+    font-family: $font-intro
 
 .h4, h4
-  font-size: 14px
+  font-size: rem(21)
   line-height: 1.38
+  margin-bottom: 20px
 
 .h5, h5
-  font-size: 13px
+  font-size: rem(18)
+  margin-bottom: 20px
 
 .h6, h6
-  font-size: 12px
+  font-size: rem(16)
+  margin-bottom: 20px
 
 .small, small
-  font-size: 12px
+  font-size: rem(12)
   line-height: 1.2
 
 p
-  line-height: 22px
-  margin: 0 0 20px 0
+  line-height: 1.6
+  margin: 0 0 28px 0
 
 em, i, .em, .i
   font-style: italic
 
 strong, b, .strong, .b
-  font-weight: bold
+  font-weight: 400
+  font-family: $font-roboto-medium
 
 hr
   border: solid #ddd
@@ -182,8 +189,52 @@ a.link
 .section
   padding: 50px 0
   min-width: 320px
+  &__container
+    max-width: 1170px
+    padding: 0 15px
+    margin: 0 auto
+    position: relative
+    min-height: 1px
+    +clearfix
+    &--fullwidth
+      max-width: inherit
+      width: 100%
+      padding: 0
+  &__head
+    text-align: center
+    &--big
+      .h1, h1
+        line-height: 1.2
+        font-size: rem(70)
+        &>*
+          vertical-align: middle
+        b
+          background: $color-blue
+          transform: skewX(-10deg)
+          color: $color-white
+          font-family: $font-intro
+          padding: 0 20px
+          justify-content: center
+          align-items: center
+          margin-left: 15px
+          border-radius: 10px
+          line-height: 1
+          vertical-align: middle
+          font-family: $font-roboto-bold
+          // font-weight: bold
+          text-transform: uppercase
+          display: inline-block
+          span
+            transform: skewX(10deg)
+            display: inline-block
+            line-height: 1
+            // padding: 10px 0
+            height: 90px
+            line-height: 90px
 
 .container
+  width: 100% !important
+  padding: 0px !important
   .section
     min-width: inherit
 

@@ -1,8 +1,26 @@
 /* modules */
 
-/* gallery */
-.gallery
-  &__item
-    padding: 5px
-    background: $color-white
-    box-shadow: 0 0 5px rgba($color-black,0.5)
+.contact
+  &__map
+    position: relative
+    height: 0
+    width: 100%
+    padding-bottom: 586px
+    background:
+      image: url('../img/contact-map.png')
+      position: top center
+      repeat: no-repeat
+      size: cover
+    &-marker
+      position: absolute
+      left: 50%
+      top: 50%
+      transform: translate(-50%,-50%)
+      width: 81px
+      padding-bottom: 131px
+      a
+        position: absolute
+        left: 0
+        margin-left: -71px
+        padding: 0
+        width: 226px

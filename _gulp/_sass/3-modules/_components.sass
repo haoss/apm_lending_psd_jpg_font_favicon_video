@@ -1,8 +1,3 @@
-html, body
-  width: 100%
-  height: 100%
-  margin: 0
-
 .perspective
   width: 100%
   height: 100%
@@ -16,7 +11,7 @@ html, body
   position: relative
   outline: 1px solid rgba(0, 0, 0, 0)
   z-index: 10
-  -webkit-transform: translateZ(0) translateX(0) rotateY(0deg)
+
   /* reset transforms (Chrome bug)
   transform: translateZ(0) translateX(0) rotateY(0deg)
   &::after
@@ -29,7 +24,7 @@ html, body
     opacity: 0
     background: rgba(0, 0, 0, 0.2)
     /* the transition delay of the height needs to be synced with the container transition time
-    -webkit-transition: opacity 0.4s, height 0s 0.4s
+
     transition: opacity 0.4s, height 0s 0.4s
 
 .container-wrapper
@@ -45,7 +40,7 @@ html, body
 
 .perspective.modalview
   position: fixed
-  -webkit-perspective: 1500px
+
   perspective: 1500px
 
 .modalview
@@ -55,16 +50,16 @@ html, body
     width: 100%
     height: 100%
     cursor: pointer
-    -webkit-backface-visibility: hidden
+
     backface-visibility: hidden
   .wrapper
-    -webkit-transform: translateZ(-1px)
+
     /* solves a rendering bug in Chrome on Windows
 
 .animate .container::after
   opacity: 1
   height: 101%
-  -webkit-transition: opacity 0.3s
+
   transition: opacity 0.3s
 
 /* Outer Nav
@@ -73,9 +68,9 @@ html, body
   position: absolute
   top: 50%
   left: 65%
-  -webkit-transform: translateY(-50%)
+
   transform: translateY(-50%)
-  -webkit-transform-style: preserve-3d
+
   transform-style: preserve-3d
   margin: 0
   padding: 0
@@ -83,10 +78,10 @@ html, body
   list-style: none
   text-align: center
   visibility: hidden
-  -webkit-transition: visibility 0s .2s
+
   transition: visibility 0s .2s
   &.left
-    left: 15%
+    left: 80px
   &.right
     right: 25%
   &.top
@@ -114,9 +109,9 @@ html, body
     text-transform: none
     line-height: 1
     margin-right: 10px
-    -webkit-font-smoothing: antialiased
+
     -moz-osx-font-smoothing: grayscale
-    -webkit-backface-visibility: hidden
+
     backface-visibility: hidden
 
 .modalview .outer-nav
@@ -129,12 +124,9 @@ html, body
 .effect-airbnb
   background: #b8b6b4
   .container
-    -webkit-transition: -webkit-transform 0.4s
     transition: transform 0.4s
-    -webkit-transform-origin: 50% 50%
     transform-origin: 50% 50%
   &.animate .container
-    -webkit-transform: translateZ(-1500px) translateX(100%) rotateY(-45deg)
     transform: translateZ(-1500px) translateX(100%) rotateY(-45deg)
 
 .no-csstransforms3d .effect-airbnb.animate .container
@@ -143,31 +135,31 @@ html, body
 .effect-airbnb
   .outer-nav a
     opacity: 0
-    -webkit-transform: translateX(-150px)
+
     transform: translateX(-150px)
-    -webkit-transition: -webkit-transform 0.4s, opacity 0.4s
+
     transition: transform 0.4s, opacity 0.4s
   &.animate .outer-nav a
     opacity: 1
-    -webkit-transform: translateX(0)
+
     transform: translateX(0)
     &:nth-child(2)
-      -webkit-transition-delay: 0.04s
+
       transition-delay: 0.04s
     &:nth-child(3)
-      -webkit-transition-delay: 0.08s
+
       transition-delay: 0.08s
     &:nth-child(4)
-      -webkit-transition-delay: 0.12s
+
       transition-delay: 0.12s
     &:nth-child(5)
-      -webkit-transition-delay: 0.16s
+
       transition-delay: 0.16s
     &:nth-child(6)
-      -webkit-transition-delay: 0.2s
+
       transition-delay: 0.2s
     &:nth-child(7)
-      -webkit-transition-delay: 0.24s
+
       transition-delay: 0.24s
 
 /* Effect Move Left
@@ -175,14 +167,14 @@ html, body
 .effect-moveleft
   background: #f4f3f1
   .container
-    -webkit-transition: -webkit-transform 0.4s
+
     transition: transform 0.4s
-    -webkit-transform-origin: 50% 50%
+
     transform-origin: 50% 50%
     &::after
       background: rgba(255, 255, 255, 0.6)
   &.animate .container
-    -webkit-transform: translateX(-50%) rotateY(45deg) translateZ(-50px)
+
     transform: translateX(-50%) rotateY(45deg) translateZ(-50px)
 
 .no-csstransforms3d .effect-moveleft.animate .container
@@ -192,33 +184,33 @@ html, body
   .outer-nav a
     color: #e86a32
     opacity: 0
-    -webkit-transform: translateX(100px) translateZ(-1000px)
+
     transform: translateX(100px) translateZ(-1000px)
-    -webkit-transition: -webkit-transform 0.4s, opacity 0.4s
+
     transition: transform 0.4s, opacity 0.4s
     &:hover
       color: #333
   &.animate .outer-nav a
     opacity: 1
-    -webkit-transform: translateX(0) translateZ(0)
+
     transform: translateX(0) translateZ(0)
     &:nth-child(2)
-      -webkit-transition-delay: 0.04s
+
       transition-delay: 0.04s
     &:nth-child(3)
-      -webkit-transition-delay: 0.08s
+
       transition-delay: 0.08s
     &:nth-child(4)
-      -webkit-transition-delay: 0.12s
+
       transition-delay: 0.12s
     &:nth-child(5)
-      -webkit-transition-delay: 0.16s
+
       transition-delay: 0.16s
     &:nth-child(6)
-      -webkit-transition-delay: 0.2s
+
       transition-delay: 0.2s
     &:nth-child(7)
-      -webkit-transition-delay: 0.24s
+
       transition-delay: 0.24s
 
 /* Effect Rotate Right
@@ -226,14 +218,14 @@ html, body
 .effect-rotateleft
   background: #fff
   .container
-    -webkit-transition: -webkit-transform 0.4s
+
     transition: transform 0.4s
-    -webkit-transform-origin: 0% 50%
+
     transform-origin: 0% 50%
     &::after
       background: rgba(255, 255, 255, 0.6)
   &.animate .container
-    -webkit-transform: translateZ(-1800px) translateX(-50%) rotateY(45deg)
+
     transform: translateZ(-1800px) translateX(-50%) rotateY(45deg)
 
 .no-csstransforms3d .effect-rotateleft.animate .container
@@ -242,28 +234,28 @@ html, body
 .effect-rotateleft
   .outer-nav a
     opacity: 0
-    -webkit-transform: translateX(350px) translateZ(-1000px)
+
     transform: translateX(350px) translateZ(-1000px)
-    -webkit-transition: -webkit-transform 0.4s, opacity 0.4s
+
     transition: transform 0.4s, opacity 0.4s
   &.animate .outer-nav a
     opacity: 1
-    -webkit-transform: translateX(0) translateZ(0)
+
     transform: translateX(0) translateZ(0)
     &:nth-child(2)
-      -webkit-transition-delay: 0.04s
+
       transition-delay: 0.04s
     &:nth-child(3), &:nth-child(4)
-      -webkit-transition-delay: 0.08s
+
       transition-delay: 0.08s
     &:nth-child(5)
-      -webkit-transition-delay: 0.16s
+
       transition-delay: 0.16s
     &:nth-child(6)
-      -webkit-transition-delay: 0.2s
+
       transition-delay: 0.2s
     &:nth-child(7)
-      -webkit-transition-delay: 0.24s
+
       transition-delay: 0.24s
 
 /* Effect Rotate Right
@@ -271,15 +263,12 @@ html, body
 .effect-rotateright
   background: #fff
   .container
-    -webkit-transition: -webkit-transform 0.4s
-    transition: transform 0.4s
-    -webkit-transform-origin: 0% 50%
+    transition: all 0.4s
     transform-origin: 0% 50%
     &::after
       background: rgba(255, 255, 255, 0.6)
   &.animate .container
-    -webkit-transform: translateZ(-2100px) translateX(50%) rotateY(-45deg)
-    transform: translateZ(-2100px) translateX(50%) rotateY(-45deg)
+    transform: translateZ(-1500px) translateX(20%) rotateY(-35deg)
 
 .no-csstransforms3d .effect-rotateright.animate .container
   left: -75%
@@ -287,28 +276,28 @@ html, body
 .effect-rotateright
   .outer-nav a
     opacity: 0
-    -webkit-transform: translateX(350px) translateZ(-1000px)
+
     transform: translateX(350px) translateZ(-1000px)
-    -webkit-transition: -webkit-transform 0.4s, opacity 0.4s
+
     transition: transform 0.4s, opacity 0.4s
   &.animate .outer-nav a
     opacity: 1
-    -webkit-transform: translateX(0) translateZ(0)
+
     transform: translateX(0) translateZ(0)
     &:nth-child(2)
-      -webkit-transition-delay: 0.04s
+
       transition-delay: 0.04s
     &:nth-child(3), &:nth-child(4)
-      -webkit-transition-delay: 0.08s
+
       transition-delay: 0.08s
     &:nth-child(5)
-      -webkit-transition-delay: 0.16s
+
       transition-delay: 0.16s
     &:nth-child(6)
-      -webkit-transition-delay: 0.2s
+
       transition-delay: 0.2s
     &:nth-child(7)
-      -webkit-transition-delay: 0.24s
+
       transition-delay: 0.24s
 
 /* Effect Move Down
@@ -316,14 +305,14 @@ html, body
 .effect-movedown
   background: #34495e
   .container
-    -webkit-transition: -webkit-transform 0.4s
+
     transition: transform 0.4s
-    -webkit-transform-origin: 50% 50%
+
     transform-origin: 50% 50%
     &::after
       background: rgba(52, 73, 94, 0.5)
   &.animate .container
-    -webkit-transform: translateY(100%) translateZ(-1500px)
+
     transform: translateY(100%) translateZ(-1500px)
 
 .no-csstransforms3d .effect-movedown.animate .container
@@ -332,33 +321,33 @@ html, body
 .effect-movedown
   .outer-nav a
     opacity: 0
-    -webkit-transform: translateY(-20px)
+
     transform: translateY(-20px)
-    -webkit-transition: -webkit-transform 0.4s, opacity 0.4s
+
     transition: transform 0.4s, opacity 0.4s
     &:hover
       color: #ed8151
   &.animate .outer-nav a
     opacity: 1
-    -webkit-transform: translateY(0)
+
     transform: translateY(0)
     &:nth-child(2)
-      -webkit-transition-delay: 0.04s
+
       transition-delay: 0.04s
     &:nth-child(3)
-      -webkit-transition-delay: 0.08s
+
       transition-delay: 0.08s
     &:nth-child(4)
-      -webkit-transition-delay: 0.12s
+
       transition-delay: 0.12s
     &:nth-child(5)
-      -webkit-transition-delay: 0.16s
+
       transition-delay: 0.16s
     &:nth-child(6)
-      -webkit-transition-delay: 0.2s
+
       transition-delay: 0.2s
     &:nth-child(7)
-      -webkit-transition-delay: 0.24s
+
       transition-delay: 0.24s
 
 /* Effect Rotate Top
@@ -366,14 +355,14 @@ html, body
 .effect-rotatetop
   background: #edcdbb
   .container
-    -webkit-transition: -webkit-transform 0.4s
+
     transition: transform 0.4s
-    -webkit-transform-origin: 50% 50%
+
     transform-origin: 50% 50%
     &::after
       background: rgba(94, 59, 43, 0.6)
   &.animate .container
-    -webkit-transform: translateZ(-1500px) translateY(-50%) rotateX(-45deg)
+
     transform: translateZ(-1500px) translateY(-50%) rotateX(-45deg)
 
 .no-csstransforms3d .effect-rotatetop.animate .container
@@ -383,33 +372,33 @@ html, body
   .outer-nav a
     opacity: 0
     color: #ed8151
-    -webkit-transform: translateY(200px) translateZ(-1000px)
+
     transform: translateY(200px) translateZ(-1000px)
-    -webkit-transition: -webkit-transform 0.4s, opacity 0.4s
+
     transition: transform 0.4s, opacity 0.4s
     &:hover
       color: #777
   &.animate .outer-nav a
     opacity: 1
-    -webkit-transform: translateY(0) translateZ(0)
+
     transform: translateY(0) translateZ(0)
     &:nth-child(2)
-      -webkit-transition-delay: 0.04s
+
       transition-delay: 0.04s
     &:nth-child(3)
-      -webkit-transition-delay: 0.08s
+
       transition-delay: 0.08s
     &:nth-child(4)
-      -webkit-transition-delay: 0.12s
+
       transition-delay: 0.12s
     &:nth-child(5)
-      -webkit-transition-delay: 0.16s
+
       transition-delay: 0.16s
     &:nth-child(6)
-      -webkit-transition-delay: 0.2s
+
       transition-delay: 0.2s
     &:nth-child(7)
-      -webkit-transition-delay: 0.24s
+
       transition-delay: 0.24s
 
 /* Effect Lay Down
@@ -417,12 +406,12 @@ html, body
 .effect-laydown
   background: #b8b6b4
   .container
-    -webkit-transition: -webkit-transform 0.4s
+
     transition: transform 0.4s
-    -webkit-transform-origin: 50% 150%
+
     transform-origin: 50% 150%
   &.animate .container
-    -webkit-transform: translateZ(-1500px) rotateX(80deg)
+
     transform: translateZ(-1500px) rotateX(80deg)
 
 .no-csstransforms3d .effect-laydown.animate .container
@@ -431,34 +420,34 @@ html, body
 .effect-laydown
   .outer-nav a
     opacity: 0
-    -webkit-transform: translateY(-200px) translateZ(-1000px)
+
     transform: translateY(-200px) translateZ(-1000px)
-    -webkit-transition: -webkit-transform 0.4s, opacity 0.4s
+
     transition: transform 0.4s, opacity 0.4s
   &.animate .outer-nav a
     opacity: 1
-    -webkit-transform: translateY(0) translateZ(0)
+
     transform: translateY(0) translateZ(0)
     &:nth-child(7)
-      -webkit-transition-delay: 0.0s
+
       transition-delay: 0.0s
     &:nth-child(6)
-      -webkit-transition-delay: 0.04s
+
       transition-delay: 0.04s
     &:nth-child(5)
-      -webkit-transition-delay: 0.08s
+
       transition-delay: 0.08s
     &:nth-child(4)
-      -webkit-transition-delay: 0.12s
+
       transition-delay: 0.12s
     &:nth-child(3)
-      -webkit-transition-delay: 0.16s
+
       transition-delay: 0.16s
     &:nth-child(2)
-      -webkit-transition-delay: 0.2s
+
       transition-delay: 0.2s
     &:first-child
-      -webkit-transition-delay: 0.24s
+
       transition-delay: 0.24s
 
 /* Media Queries
@@ -505,7 +494,11 @@ html, body
 .container-viewport
   position: relative
   width: 100%
-  height: 100vh
-  /* box-shadow: 0 0 45px 5px rgba(0, 0, 0, 0.85);
+  height: 100%
   box-shadow: 0 0 0px 16px #00c7f0
-  overflow: hidden
+  transition: all 0.4s
+
+.modalview
+  .container-viewport
+    overflow: hidden
+    height: 100vh
