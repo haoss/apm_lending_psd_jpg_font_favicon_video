@@ -1,40 +1,43 @@
-doctype
-
+doctype html
 html(lang="ru")
   
   -var active = 'Главная' //активный пункт меню, список в header.jade
   -var pageTitle = 'Главная' + ' - siteName' //title страницы для генерации верстки  
 
   include ./_include/_head
-
+      
   body
-    
-    // Preloader
-    include ./_include/_preloader
-    
-    include ./_include/_header
-    
-    .content
+    #perspective.perspective.effect-rotateright
       .container
+        .container-viewport
+          .container-wrapper
+            
+            button#showMenu Show Menu
         
-        h1 Главная 2
+            include ./_include/_footer
+                  
+      nav.outer-nav.left
+        .outer-nav__phones 0 800 987 65 43
+        .outer-nav__links
+          a(href="#!") главная
+          a(href="#!") о компании
+          a(href="#!") цифры
+          a(href="#!") ассортимент
+          a(href="#!") сотрудничество
+          a(href="#!") отзывы
+          a(href="#!") контакты
+        .outer-nav__share share
+          
         
-        .row
-          .col-md-4 4 collumns
-          .col-md-8 8 collumns
-
     
-    include ./_include/_footer
-    div(style="height: 1000px; background-color: #000")
     
     //[if gte IE 9]
       <script src='./js/libs/html5shiv/es5-shim.min.js'>
       <script src='./js/libs/html5shiv/html5shiv.min.js'>
       <script src='./js/libs/html5shiv/html5shiv-printshiv.min.js'>
       <script src='./js/libs/html5shiv/respond.min.js'><![endif]
-
+        
     // Load Scripts
     script(src="./js/libs.js")
     include ./_include/_footer-js
     script(src="./js/common.js")
-    

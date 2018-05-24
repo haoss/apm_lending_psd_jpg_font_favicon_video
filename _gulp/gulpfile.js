@@ -86,12 +86,14 @@ gulp.task('jade', function() {
 // Scripts
 gulp.task('scripts', function() {
   return gulp.src([
-    './dist/js/libs/modernizr/modernizr.js',
-    './dist/js/libs/jquery/jquery-3.3.1.min.js',
-    './dist/js/libs/jquery/jquery-migrate-3.0.1.min.js',
+    './dist/js/libs/menuRotate/modernizr.custom.25376.js',
+    './dist/js/libs/jquery/jquery-2.2.4.min.js',
+    './dist/js/libs/jquery/jquery-migrate-1.4.1.min.js',
     './dist/js/libs/plugins-scroll/plugins-scroll.js',
     './dist/js/libs/magnific-popup/jquery.magnific-popup.min.js',
-    './node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js'
+    './dist/js/libs/menuRotate/classie.js',
+    './dist/js/libs/menuRotate/menu.js',
+    // './node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js'
   ])
   .pipe(concat('libs.js'))
   // .pipe(uglify()) //Minify libs.js
