@@ -1,10 +1,11 @@
 {
-  "name": "projectName",
+  "name": "Биржа Автозапчастей",
   "description": "project description",
   "version": "2.0.0",
   "homepage": "",
   "author": "Dmitriy Khristoev <info@websource.in.ua> (http://websource.in.ua/)",
   "devDependencies": {
+    "bootstrap-sass": "^3.3.7",
     "bourbon": "^5.0.0",
     "bourbon-neat": "^1.9.0",
     "browser-sync": "^2.24.1",
