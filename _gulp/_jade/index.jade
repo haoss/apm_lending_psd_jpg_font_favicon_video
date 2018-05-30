@@ -41,17 +41,65 @@ html(lang="ru")
                   
               section.section.steps
                 .section__container
-                  h1 4 шага к  сотрудничеству
+                  
+                  .steps__wrapper
+                    .steps__head
+                      span 4 шага к сотрудничеству
+                    .steps__content
+                      .steps__content-img
+                        img(src="./img/step-img-2.png", alt="")
+                      
+                      .steps__content-step.steps__content-step--active4
+                        .steps__content-line
+                        .steps__content-number.steps__content-number--1 01
+                        .steps__content-number.steps__content-number--2 02
+                        .steps__content-number.steps__content-number--3 03
+                        .steps__content-number.steps__content-number--4 04
+                      .steps__content-info Заполняем анкету онлайн
+                      
+                      a(href="#!").btn Заполнить
                   
               section.section.what-say
                 .section__container
                   h1 что о нас говорят
                   
               section.section.contacts.no--p
-                .section__container.section__container--fullwidth
+                .section__container
                   
-                  .contact__map
-                    .contact__map-marker
+                  .section__head
+                    .h1 наши КОнтакты
+                  
+                  .row
+                    .col-lg-10.col-lg-push-1
+                      .contacts__info
+                        div
+                          .contacts__info-block
+                            a(href="#!").contacts__info-link
+                              i.ion-android-pin
+                              span центральный офис
+                            p 123456, г. Москва, ул. Первая деловая, 1
+                              br
+                              a(href="#!") 8 (495) 637-12-34
+                              br
+                              a(href="#!") 8 (495) 637-12-35
+                              br
+                              a(href="#!") email: info@apm.store
+                        div
+                          .contacts__info-block
+                            a(href="#!").contacts__info-link
+                              i.ion-android-pin
+                              span Основной склад в ОАЕ
+                            p Аль Квос Индастриал Арея 4
+                              br
+                              | منطقة القوز الصناعية
+                              br
+                              a(href="#!") +971 4 408 9999
+                              br
+                              a(href="#!") email: sklad@apm.store
+                          
+                .section__container.section__container--fullwidth
+                  .contacts__map
+                    .contacts__map-marker
                       img(src="./img/contacts-marker.png", alt="")
                       a(href="#!").btn Хочу купить
         

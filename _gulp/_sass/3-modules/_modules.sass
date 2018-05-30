@@ -1,6 +1,6 @@
 /* modules */
 
-.contact
+.contacts
   &__map
     position: relative
     height: 0
@@ -24,3 +24,156 @@
         margin-left: -71px
         padding: 0
         width: 226px
+  &__info
+    display: flex
+    justify-content: space-around
+    padding-bottom: 35px
+    &>div
+      width: 485px
+      padding: 0 15px
+    &-block
+      font-size: 14px
+      color: $primary-color
+      p
+        line-height: 22px
+        &:last-child
+          margin-bottom: 0
+        a
+          text-decoration: none
+          color: $primary-color
+    &-link
+      color: $color-blue
+      text-transform: uppercase
+      font-size: 20px
+      text-decoration: none
+      display: inline-block
+      border-bottom: 1px dotted $color-blue
+      margin-bottom: 5px
+      i
+        margin-right: 10px
+
+.steps
+  padding-bottom: 85px
+  background: linear-gradient(to top, #f2f4f5 188px, #fff 0px)
+  &__wrapper
+    background: $color-white
+    border: 4px solid $color-blue
+    margin: 0 auto
+    max-width: 1005px
+    height: 402px
+    box-shadow: 0 20px 40px rgba($color-black,.1)
+    position: relative
+    padding: 72px 0 0 0
+  &__head
+    text-transform: uppercase
+    line-height: 1
+    position: absolute
+    left: 0
+    right: 0
+    top: 0
+    transform: translateY(-50%)
+    text-align: center
+    font-size: 50px
+    font-family: $font-intro
+    &>span
+      display: inline-block
+      background: $color-white
+      padding: 0 15px
+  &__content
+    text-align: center
+    &-img
+      height: 132px
+      width: 132px
+      background: $color-blue
+      position: relative
+      display: inline-block
+      border-radius: 50%
+      box-shadow: 0 0 0 22px #d3f2fd
+      margin-top: 21px
+      margin-bottom: 69px
+      vertical-align: middle
+      img
+        position: absolute
+        left: -14px
+        bottom: -16px
+    .btn
+      max-width: 226px
+      width: 100%
+    &-step
+      position: relative
+      margin-left: 93px
+      margin-right: 92px
+      &--active1
+        .steps__content
+          &-line
+            background: linear-gradient(to right, $color-blue 93px, #f0f2f3 0px)
+          &-number
+            &--1
+              color: $color-blue
+      &--active2
+        .steps__content
+          &-line
+            background: linear-gradient(to right, $color-blue 284px, #f0f2f3 0px)
+          &-number
+            &--1
+              font-size: 0
+              &::after
+                display: inline-block
+            &--2
+              color: $color-blue
+      &--active3
+        .steps__content
+          &-line
+            background: linear-gradient(to right, $color-blue 480px, #f0f2f3 0px)
+          &-number
+            &--1, &--2
+              font-size: 0
+              &::after
+                display: inline-block
+            &--3
+              color: $color-blue
+      &--active4
+        .steps__content
+          &-line
+            background: linear-gradient(to right, $color-blue 100%, #f0f2f3 0px)
+          &-number
+            &--1, &--2, &--3
+              font-size: 0
+              &::after
+                display: inline-block
+            &--4
+              color: $color-blue
+    &-line
+      height: 2px
+      background: linear-gradient(to right, $color-blue 0px, #f0f2f3 0px)
+    &-number
+      position: absolute
+      line-height: 1
+      width: 32px
+      background: $color-white
+      z-index: 5
+      text-align: center
+      color: #f0f2f3
+      font-size: 20px
+      text-transform: uppercase
+      font-family: $font-intro
+      top: 0
+      left: 93px
+      transform: translateY(-50%)
+      &::after
+        content: "\f122"
+        font-family: $font-ionicons
+        font-size: 20px
+        color: $color-blue
+        display: none
+      &--2
+        left: 284px
+      &--3
+        left: 480px
+      &--4
+        left: 675px
+    &-info
+      font-size: 16px
+      height: 76px
+      line-height: 76px
+      font-weight: 400

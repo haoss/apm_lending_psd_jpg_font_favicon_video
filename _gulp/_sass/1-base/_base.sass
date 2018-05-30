@@ -44,37 +44,38 @@ body
   margin: 0 0 26px 0
 
 .h1, h1
-  font-size: rem(50)
+  font-size: 50px
   line-height: 1
   letter-spacing: -1px
   font-family: $font-intro
+  margin-bottom: 50px
 
 .h2, h2
-  font-size: rem(30)
+  font-size: 30px
   line-height: 1.14
   font-family: $font-intro
 
 .h3, h3
-  font-size: rem(25)
+  font-size: 25px
   line-height: 1.38
   &--intro
     font-family: $font-intro
 
 .h4, h4
-  font-size: rem(21)
+  font-size: 21px
   line-height: 1.38
   margin-bottom: 20px
 
 .h5, h5
-  font-size: rem(18)
+  font-size: 18px
   margin-bottom: 20px
 
 .h6, h6
-  font-size: rem(16)
+  font-size: 16px
   margin-bottom: 20px
 
 .small, small
-  font-size: rem(12)
+  font-size: 12px
   line-height: 1.2
 
 p
@@ -201,36 +202,10 @@ a.link
       width: 100%
       padding: 0
   &__head
+    margin-bottom: 50px
     text-align: center
-    &--big
-      .h1, h1
-        line-height: 1.2
-        font-size: rem(70)
-        &>*
-          vertical-align: middle
-        b
-          background: $color-blue
-          transform: skewX(-10deg)
-          color: $color-white
-          font-family: $font-intro
-          padding: 0 20px
-          justify-content: center
-          align-items: center
-          margin-left: 15px
-          border-radius: 10px
-          line-height: 1
-          vertical-align: middle
-          font-family: $font-roboto-bold
-          // font-weight: bold
-          text-transform: uppercase
-          display: inline-block
-          span
-            transform: skewX(10deg)
-            display: inline-block
-            line-height: 1
-            // padding: 10px 0
-            height: 90px
-            line-height: 90px
+    .h1, h1
+      margin-bottom: 0
 
 .container
   width: 100% !important
