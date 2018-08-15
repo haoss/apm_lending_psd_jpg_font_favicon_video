@@ -132,7 +132,7 @@ gulp.task('browser-sync', function() {
 });
 
 // Watch
-gulp.task('watch', ['setWatch', 'jade'], function () {
+gulp.task('watch', ['setWatch', 'jade', 'sass'], function () {
   gulp.watch('./_sass/**/*.sass', ['sass']);
   gulp.watch('./_jade/**/*.jade', ['jade']);
   gulp.watch('./dist/libs/**/*.js', ['scripts']);

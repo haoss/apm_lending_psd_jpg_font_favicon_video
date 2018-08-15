@@ -131,20 +131,20 @@ a.link
   z-index: 10000
   background-color: $color-white
   &__block
-    background: $color-black
+    background: $color-blue
     animation: load1 1s infinite ease-in-out
     width: 1em
     height: 4em
     position: absolute
     top: 50%
     left: 50%
-    color: $color-black
+    color: $color-blue
     text-indent: -9999em
     font-size: 11px
     animation-delay: -0.16s
     transform: translate(-50%,-50%)
     &:before, &:after
-      background: $color-black
+      background: $color-blue
       animation: load1 1s infinite ease-in-out
       width: 1em
       height: 4em
@@ -226,6 +226,8 @@ ol li
     background-color: $color-white !important
   &--black
     background-color: $color-black !important
+  &--blue
+    background-color: $color-blue !important
 
 /* no padding no margin */
 .no
@@ -268,3 +270,5 @@ ol li
     color: $color-black !important
   &--white
     color: $color-white !important
+  &--blue
+    color: $color-blue !important
