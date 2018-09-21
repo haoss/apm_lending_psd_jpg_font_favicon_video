@@ -28,9 +28,6 @@
     display: flex
     justify-content: space-between
     padding-bottom: 35px
-    // &>div
-      // width: 50%
-      // padding: 0 15px
     &-block
       font-size: 14px
       color: $primary-color
@@ -106,14 +103,16 @@
       &--active1
         .steps__content
           &-line
-            background: linear-gradient(to right, $color-blue 93px, #f0f2f3 0px)
+            &::before
+              width: 93px
           &-number
             &--1
               color: $color-blue
       &--active2
         .steps__content
           &-line
-            background: linear-gradient(to right, $color-blue 284px, #f0f2f3 0px)
+            &::before
+              width: 284px
           &-number
             &--1
               font-size: 0
@@ -124,7 +123,8 @@
       &--active3
         .steps__content
           &-line
-            background: linear-gradient(to right, $color-blue 492px, #f0f2f3 0px)
+            &::before
+              width: 492px
           &-number
             &--1, &--2
               font-size: 0
@@ -135,7 +135,8 @@
       &--active4
         .steps__content
           &-line
-            background: linear-gradient(to right, $color-blue 100%, #f0f2f3 0px)
+            &::before
+              width: 100%
           &-number
             &--1, &--2, &--3
               font-size: 0
@@ -145,7 +146,17 @@
               color: $color-blue
     &-line
       height: 2px
-      background: linear-gradient(to right, $color-blue 0px, #f0f2f3 0px)
+      background: #f0f2f3
+      position: relative
+      &::before
+        width: 0px
+        height: 2px
+        content: ''
+        background: $color-blue
+        position: absolute
+        left: 0
+        top: 0
+        transition: width 0.35s
     &-number
       position: absolute
       line-height: 1
@@ -313,3 +324,7 @@
     font-size: 16px
     font-family: $font-roboto-medium
     line-height: 24px
+
+.about
+  background: $color-blue
+  color: $color-white

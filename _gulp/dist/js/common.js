@@ -54,6 +54,8 @@ $(document).on('ready', function(){
     midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
   });
 
+  steps();
+
   // Chrome Smooth Scroll
   try {
     $.browserSelector();
@@ -136,4 +138,32 @@ function simpleForm(form, callback) {
 
     return false;
   });
+}
+
+function steps(){
+  var btn = $('#stepsBtn');
+  var count = btn.data('step');
+  var body = $('.steps__content-step');
+  var number = body.find('.steps__content-number');
+  var info = $('.steps__content-info');
+  var img = $('.steps__content-img img').attr('src', './img/step-img-' + count + '.png')
+
+  btn.on('click', function(e){
+    e.preventDefault();
+    if (count >= 1 && count <= 3) {
+      body.removeClass('steps__content-step--active' + count);
+      count++;
+      body.addClass('steps__content-step--active' + count);
+      img.attr('src', './img/step-img-' + count + '.png');
+      info.text($('.steps__content-number--' + count).data('text'));
+    } else {
+      body.removeClass('steps__content-step--active' + count);
+      count = 1;
+      body.addClass('steps__content-step--active' + count);
+      img.attr('src', './img/step-img-' + count + '.png');
+      info.text($('.steps__content-number--' + count).data('text'));
+    }
+
+    $(this).attr('data-step', count);
+  })
 }

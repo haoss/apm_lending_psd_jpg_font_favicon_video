@@ -25,8 +25,10 @@
         margin-left: 60px
         margin-right: 60px
   .availability
+    padding-bottom: 80px
     &__img
       margin-top: 80px
+      margin-left: -85px
       &-big
         width: 183px
         height: 183px
@@ -42,8 +44,20 @@
               &+div
                 width: 294px
                 height: 294px
-                left: -58px
-                top: -58px
+                left: -56px
+                top: -56px
+      &-block
+        margin-top: -95px
+        background-position: calc(100% - 25px) 50px
+        &--two
+          margin-top: 50px
+          max-width: 304px
+          background-position: calc(100% - -55px) 35px
+        &--three
+          margin-top: 150px
+          background-position: calc(100% - 40px) -4px
+      &-number
+        left: 152px
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 991px)
@@ -68,16 +82,27 @@
         &--active1
           .steps__content
             &-line
-              background: linear-gradient(to right, $color-blue 74px, #f0f2f3 0px)
+              &::before
+                width: 74px
         &--active2
           .steps__content
             &-line
-              background: linear-gradient(to right, $color-blue 207px, #f0f2f3 0px)
+              &::before
+                width: 207px
         &--active3
           .steps__content
             &-line
-              background: linear-gradient(to right, $color-blue 354px, #f0f2f3 0px)
-
+              &::before
+                width: 354px
+  .availability
+    padding-top: 85px
+    padding-bottom: 175px
+    &__content
+      max-width: none
+      padding-left: 25px
+    &__img
+      margin-left: 135px
+      margin-top: 115px
 
 
 /* Small Devices, Tablets */
@@ -115,15 +140,18 @@
         &--active1
           .steps__content
             &-line
-              background: linear-gradient(to right, $color-blue 42px, #f0f2f3 0px)
+              &::before
+                width: 42px
         &--active2
           .steps__content
             &-line
-              background: linear-gradient(to right, $color-blue 132px, #f0f2f3 0px)
+              &::before
+                width: 132px
         &--active3
           .steps__content
             &-line
-              background: linear-gradient(to right, $color-blue 229px, #f0f2f3 0px)
+              &::before
+                width: 229px
   .contacts
     &__info
       display: block
@@ -132,6 +160,38 @@
       &>div
         &+div
           padding-top: 25px
+  .availability
+    padding-bottom: 50px
+    &__img
+      margin: 80px auto 0
+      &-big
+        margin: 0 auto
+      &-number
+        position: inherit
+        left: inherit
+        margin: 70px auto 0
+        max-width: 340px
+      &-block
+        position: inherit
+        background: none
+        margin-top: 0
+        max-width: inherit
+        height: 80px
+        &>div
+          width: 62px
+          height: 62px
+          right: inherit
+          left: 0
+          .strong
+            font-size: 55px
+          .b
+            font-size: 24px
+            right: -15px
+            bottom: 3px
+          .span
+            left: 100px
+            top: 19px
+            font-size: 16px
 
 /* Extra Small Devices, Phones */
 @media only screen and (max-width : 479px)
@@ -163,15 +223,32 @@
         &--active1
           .steps__content
             &-line
-              background: linear-gradient(to right, $color-blue 19px, #f0f2f3 0px)
+              &::before
+                width: 19px
         &--active2
           .steps__content
             &-line
-              background: linear-gradient(to right, $color-blue 91px, #f0f2f3 0px)
+              &::before
+                width: 91px
         &--active3
           .steps__content
             &-line
-              background: linear-gradient(to right, $color-blue 166px, #f0f2f3 0px)
+              &::before
+                width: 166px
+  .availability
+    &__content
+      padding-left: 0
+    &__img
+      &-number
+        max-width: 245px
+      &-block
+        &>div
+          .span
+            max-width: 250px
+            width: 150px
+            white-space: normal
+            line-height: 1.2
+            top: 12px
 
 /* Custom, iPhone Retina */
 @media only screen and (max-width : 319px)

@@ -18,8 +18,8 @@ html(lang="ru")
             
             .content__container
             
-              section.section.welcome
-                .section__container
+              section.section.register
+                .section__container.hidden-xs
                   h2 Зарегистрироваться на сайте
                   
                   .row
@@ -90,17 +90,17 @@ html(lang="ru")
                       span 4 шага к сотрудничеству
                     .steps__content
                       .steps__content-img
-                        img(src="./img/step-img-2.png", alt="")
+                        img(src="./img/step-img-1.png", alt="")
                       
-                      .steps__content-step.steps__content-step--active2
+                      .steps__content-step.steps__content-step--active1
                         .steps__content-line
-                        .steps__content-number.steps__content-number--1 01
-                        .steps__content-number.steps__content-number--2 02
-                        .steps__content-number.steps__content-number--3 03
-                        .steps__content-number.steps__content-number--4 04
-                      .steps__content-info Заполняем анкету онлайн
+                        .steps__content-number.steps__content-number--1(data-text='Открываем сайт') 01
+                        .steps__content-number.steps__content-number--2(data-text='Заполняем анкету онлайн') 02
+                        .steps__content-number.steps__content-number--3(data-text='Выбираем товар') 03
+                        .steps__content-number.steps__content-number--4(data-text='Получаем посылку') 04
+                      .steps__content-info Открываем сайт
                       
-                      a(href="#!").btn Заполнить
+                      a(href="#!" data-step='1').btn#stepsBtn Заполнить
                   
               section.section.what-say
                 .section__container
