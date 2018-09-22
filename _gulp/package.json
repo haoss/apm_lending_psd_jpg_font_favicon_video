@@ -1,5 +1,5 @@
 {
-  "name": "Биржа Автозапчастей",
+  "name": "projectName",
   "description": "project description",
   "version": "2.0.0",
   "homepage": "",
@@ -8,9 +8,9 @@
     "bootstrap-sass": "^3.3.7",
     "bourbon": "^5.1.0",
     "bourbon-neat": "^3.0.0",
-    "browser-sync": "^2.24.6",
+    "browser-sync": "^2.24.7",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^5.0.0",
+    "gulp-autoprefixer": "^6.0.0",
     "gulp-cached": "^1.1.1",
     "gulp-changed": "^3.2.0",
     "gulp-cheerio": "^0.6.3",
