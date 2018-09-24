@@ -334,6 +334,7 @@
   color: $color-white
 
 .welcome
+  padding-bottom: 90px
   &__title
     background: $color-blue
     color: $color-white
@@ -344,6 +345,36 @@
     padding: 21px 5px
     text-align: center
   &__faq
+    width: 677px
+    margin-left: -73px
+    margin-top: 43px
+    &-wrapper
+      border: 8px solid $color-blue
+      padding: 40px 40px 55px 65px
+    &-row
+      font-family: $font-roboto-light
+      margin-bottom: 25px
+      &:last-child
+        margin-bottom: 0
+      strong, span
+        display: block
+        line-height: 1
+      strong
+        color: $color-blue
+        font-style: italic
+        margin-left: 38px
+        margin-bottom: 10px
+        position: relative
+        padding-left: 16px
+        &::before
+          content: '—'
+          display: inline-block
+          position: absolute
+          left: 0
+          top: 0px
+      span
+        font-size: 28px
+        text-transform: uppercase
   &__content
     font-size: 14px
     padding-left: 50px
@@ -357,6 +388,7 @@
     text-transform: uppercase
     max-width: 325px
     line-height: 24px
+    margin-top: 15px
     strong
       color: $color-blue
       font-size: 30px
