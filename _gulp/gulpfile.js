@@ -1,145 +1,96 @@
-"use strict";
+'use strict';
 
-var gulp = require('gulp'),
+const gulp = require('gulp'),
+  gulpif = require('gulp-if'),
+  pug = require('gulp-pug'),
+  emitty = require('emitty').setup('_pug', 'pug'),
+  plumber = require('gulp-plumber'),
   browserSync = require('browser-sync'),
-  sass = require('gulp-sass'),
-  bourbon = require('bourbon').includePaths,
-  neat = require('bourbon-neat').includePaths,
-  uncss = require('gulp-uncss'),
+  scss = require('gulp-sass'),
   autoprefixer = require('gulp-autoprefixer'),
   sourcemaps = require('gulp-sourcemaps'),
-  rename = require("gulp-rename"),
-  plumber = require('gulp-plumber'),
-  spritesmith = require('gulp.spritesmith'),
-  buffer = require('vinyl-buffer'),
-  merge = require('merge-stream'),
-  cheerio = require('gulp-cheerio'),
-  jadeInheritance = require('gulp-jade-inheritance'),
-  jade = require('gulp-jade'),
-  changed = require('gulp-changed'),
-  cached = require('gulp-cached'),
-  gulpif = require('gulp-if'),
+  plugins = require('gulp-load-plugins')(),
   cleanCSS = require('gulp-clean-css'),
-  uglify = require('gulp-uglifyjs'),
-  concat = require('gulp-concat'),
-  filter = require('gulp-filter'),
   tinypng = require('gulp-tinypng'),
-  rimraf = require('rimraf');
+  rimraf = require('rimraf'),
+  rename = require('gulp-rename'),
+  wait = require('gulp-wait2'),
+  bourbon = require('bourbon').includePaths,
+  neat = require('bourbon-neat').includePaths,
+  TINYPNG_API = "GuAIy8BmW79-zVDoYRzRR_9eVe-QnhlN"
+  ;
 
-var plugins = require("gulp-load-plugins")();
-var TINYPNG_API = "GuAIy8BmW79-zVDoYRzRR_9eVe-QnhlN";
-
-// Sprite image
-gulp.task('sprite', function() {
-  var spriteData = gulp.src('./_img/img-sprite/*.png').pipe(spritesmith({
-    imgName: 'sprite.png',
-    cssName: '_sprite.sass',
-    algorithm : 'top-down'
-  }));
-  // Pipe image stream through image optimizer and onto disk
-  var imgStream = spriteData.img
-    // DEV: We must buffer our stream into a Buffer for `imagemin`
-    .pipe(buffer())
-    .pipe(gulp.dest('./dist/img/'));
-
-  // Pipe CSS stream through CSS optimizer and onto disk
-  var cssStream = spriteData.css
-    .pipe(gulp.dest('./_sass/1-base/'));
-
-  // Return a merged stream to handle both `end` events
-  return merge(imgStream, cssStream);
-});
+// Pug
+gulp.task('pug', () =>
+  new Promise((resolve, reject) => {
+    emitty.scan(global.emittyChangedFile).then(() => {
+      gulp.src('_pug/*.pug')
+        .pipe(plumber())
+        .pipe(gulpif(global.watch, emitty.filter(global.emittyChangedFile)))
+        .pipe(pug({
+          pretty: '    '
+        }))
+        .pipe(gulp.dest('dist'))
+        .on('end', resolve)
+        .on('error', reject);
+    });
+  })
+);
 
 // Sass
-gulp.task('sass', function() {
-  return gulp.src('./_sass/main.sass')
+gulp.task('scss', function () {
+  return gulp.src('_scss/main.scss')
+    .pipe(wait(1500))
     .pipe(plumber())
     .pipe(plugins.sourcemaps.init())
-    .pipe(sass({
-        includePaths: [bourbon, neat, './node_modules/bootstrap-sass/assets/stylesheets']
-      }).on('error', sass.logError))
-    .pipe(autoprefixer({ browsers: ['last 2 versions'], cascade: true }))
+    .pipe(scss({
+      includePaths: [bourbon, neat, './node_modules/bootstrap-sass/assets/stylesheets']
+    }).on('error', scss.logError))
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions'],
+      cascade: true
+    }))
     .pipe(cleanCSS())
-    .pipe(plugins.sourcemaps.write("./"))
-    .pipe(gulp.dest('./dist/css/'))
-    .pipe(rename({ suffix: '.min', prefix : '' }))
-    .pipe(gulp.dest('./dist/css/'))
-    .pipe(browserSync.reload({stream:true}));
-});
-
-// Jade
-gulp.task('jade', function() {
-  return gulp.src('./_jade/**/*.jade')
-    .pipe(changed('./dist/', {extension: '.html'}))
-    .pipe(gulpif(global.isWatching, cached('jade')))
-    .pipe(jadeInheritance({basedir: './_jade/'}))
-    .pipe(filter(function (file) {
-        return !/\/_/.test(file.path) && !/^_/.test(file.relative);
-      }))
-    .pipe(plumber())
-    .pipe(jade({
-        pretty: '    '
-      }))
-    .pipe(gulp.dest('./dist/'))
-});
-
-// Scripts
-gulp.task('scripts', function() {
-  return gulp.src([
-    './dist/js/libs/menuRotate/modernizr.custom.25376.js',
-    './dist/js/libs/jquery/jquery-2.2.4.min.js',
-    './dist/js/libs/jquery/jquery-migrate-1.4.1.min.js',
-    './dist/js/libs/plugins-scroll/plugins-scroll.js',
-    './dist/js/libs/magnific-popup/jquery.magnific-popup.min.js',
-    './dist/js/libs/menuRotate/classie.js',
-    './dist/js/libs/menuRotate/menu.js',
-    // './node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js'
-  ])
-  .pipe(concat('libs.js'))
-  // .pipe(uglify()) //Minify libs.js
-  .pipe(gulp.dest('./dist/js/'));
-});
-
-gulp.task('setWatch', function() {
-  global.isWatching = true;
+    .pipe(rename('style.min.css'))
+    .pipe(plugins.sourcemaps.write("/"))
+    .pipe(gulp.dest('dist/css/'))
 });
 
 // Tinypng
 gulp.task('tinypng', function () {
-  return gulp.src('./_img/tinypng/**/*.*')
+  return gulp.src('_img/tinypng/**/*.*')
     .pipe(tinypng(TINYPNG_API))
-    .pipe(gulp.dest('./dist/img/tinypng/'))
+    .pipe(gulp.dest('dist/images/tinypng/'))
 });
-
-gulp.task('compress', ['tinypng'], function (cb) {
-  rimraf('./.gulp', cb);
+gulp.task('rimraf', function (cb) {
+  rimraf('.gulp', cb);
 });
-
-// Html
-gulp.task('html', function(){
-  gulp.src('./dist/*.html');
-});
+gulp.task('compress', gulp.series('tinypng', 'rimraf'));
 
 // Static server
-gulp.task('browser-sync', function() {
+gulp.task('browser-sync', function () {
   browserSync.init({
     server: {
       baseDir: "./"
     },
     notify: false,
-    reloadDelay: 3000
+    // reloadDelay: 3000
   });
 });
 
-// Watch
-gulp.task('watch', ['setWatch', 'jade', 'sass'], function () {
-  gulp.watch('./_sass/**/*.sass', ['sass']);
-  gulp.watch('./_jade/**/*.jade', ['jade']);
-  gulp.watch('./dist/libs/**/*.js', ['scripts']);
-  gulp.watch('./img/img-sprite/*.png', ['sprite']);
-  gulp.watch('./dist/js/*.js').on("change", browserSync.reload);
-  gulp.watch('./dist/css/*.css').on('change', browserSync.reload);
-	gulp.watch('./dist/*.html').on('change', browserSync.reload);
+// Your "watch" task
+gulp.task('watch', () => {
+  global.watch = true;
+
+  gulp.watch('_pug/**/*.pug', gulp.series('pug'))
+    .on('all', (event, filepath) => {
+      global.emittyChangedFile = filepath;
+    });
+  gulp.watch('_scss/**/*.scss', gulp.series('scss'));
+  gulp.watch('dist/js/*.js').on("change", browserSync.reload);
+  gulp.watch('dist/css/*.css').on('change', browserSync.reload);
+  gulp.watch('dist/*.html').on('change', browserSync.reload);
 });
 
-gulp.task('default', ['browser-sync','watch']);
+// Default
+gulp.task('default', gulp.parallel('browser-sync', 'watch'));

@@ -1,0 +1,23 @@
+/* footer */
+.footer {
+  background-color: $color-white;
+  padding-top: 37px;
+  padding-bottom: 22px;
+  color: #b3b3b3;
+  font-size: 14px;
+  text-align: center;
+  &__share {
+    margin-bottom: 27px;
+    & > div {
+      display: inline-block;
+      vertical-align: middle;
+      opacity: 0.4;
+      transition: all 0.35s;
+      filter: grayscale(1);
+      &:hover {
+        opacity: 1;
+        filter: grayscale(0);
+      }
+    }
+  }
+}

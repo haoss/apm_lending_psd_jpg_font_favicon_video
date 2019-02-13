@@ -1,0 +1,556 @@
+.perspective {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background: #aaaaaa;
+  position: relative;
+}
+
+.container {
+  background: white;
+  min-height: 100%;
+  position: relative;
+  outline: 1px solid rgba(0, 0, 0, 0);
+  z-index: 10;
+  /* reset transforms (Chrome bug) */
+  transform: translateZ(0) translateX(0) rotateY(0deg);
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0px;
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.2);
+    /* the transition delay of the height needs to be synced with the container transition time */
+    transition: opacity 0.4s, height 0s 0.4s;
+  }
+}
+
+.container-wrapper {
+  position: relative;
+}
+
+.component {
+  margin: 0 auto;
+  width: 60%;
+  text-align: justify;
+  font-size: 1.5em;
+}
+
+/* Modal view */
+
+.perspective.modalview {
+  position: fixed;
+  perspective: 1500px;
+}
+
+.modalview {
+  .container {
+    position: absolute;
+    /* overflow: hidden; */
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    backface-visibility: hidden;
+  }
+  .wrapper {
+    /* solves a rendering bug in Chrome on Windows */
+  }
+}
+
+.animate .container::after {
+  opacity: 1;
+  height: 101%;
+  transition: opacity 0.3s;
+}
+
+/* Outer Nav */
+
+.outer-nav {
+  position: absolute;
+  top: 50%;
+  left: 65%;
+  transform: translateY(-50%);
+  transform-style: preserve-3d;
+  margin: 0;
+  padding: 0;
+  color: #505050;
+  list-style: none;
+  text-align: center;
+  visibility: hidden;
+  transition: visibility 0s 0.2s;
+  &.left {
+    left: 80px;
+  }
+  &.right {
+    right: 25%;
+  }
+  &.top {
+    top: 25%;
+  }
+  &.bottom {
+    bottom: 25%;
+  }
+  a {
+    display: inline-block;
+    white-space: nowrap;
+    font-weight: 300;
+    margin: 0 0 30px 0;
+    color: #00c7f0;
+    &:hover {
+      color: #ffdccd;
+    }
+  }
+  &.vertical a {
+    display: block;
+  }
+  &.horizontal a {
+    margin: 15px 20px;
+  }
+  a::before {
+    display: inline-block;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    margin-right: 10px;
+    -moz-osx-font-smoothing: grayscale;
+    backface-visibility: hidden;
+  }
+}
+
+.modalview .outer-nav {
+  visibility: visible;
+}
+
+/* Individual Effects */
+
+/* Effect airbnb */
+
+.effect-airbnb {
+  background: #b8b6b4;
+  .container {
+    transition: transform 0.4s;
+    transform-origin: 50% 50%;
+  }
+  &.animate .container {
+    transform: translateZ(-1500px) translateX(100%) rotateY(-45deg);
+  }
+}
+
+.no-csstransforms3d .effect-airbnb.animate .container {
+  left: 75%;
+}
+
+.effect-airbnb {
+  .outer-nav a {
+    opacity: 0;
+    transform: translateX(-150px);
+    transition: transform 0.4s, opacity 0.4s;
+  }
+  &.animate .outer-nav a {
+    opacity: 1;
+    transform: translateX(0);
+    &:nth-child(2) {
+      transition-delay: 0.04s;
+    }
+    &:nth-child(3) {
+      transition-delay: 0.08s;
+    }
+    &:nth-child(4) {
+      transition-delay: 0.12s;
+    }
+    &:nth-child(5) {
+      transition-delay: 0.16s;
+    }
+    &:nth-child(6) {
+      transition-delay: 0.2s;
+    }
+    &:nth-child(7) {
+      transition-delay: 0.24s;
+    }
+  }
+}
+
+/* Effect Move Left */
+
+.effect-moveleft {
+  background: #f4f3f1;
+  .container {
+    transition: transform 0.4s;
+    transform-origin: 50% 50%;
+    &::after {
+      background: rgba(255, 255, 255, 0.6);
+    }
+  }
+  &.animate .container {
+    transform: translateX(-50%) rotateY(45deg) translateZ(-50px);
+  }
+}
+
+.no-csstransforms3d .effect-moveleft.animate .container {
+  left: -75%;
+}
+
+.effect-moveleft {
+  .outer-nav a {
+    color: #e86a32;
+    opacity: 0;
+    transform: translateX(100px) translateZ(-1000px);
+    transition: transform 0.4s, opacity 0.4s;
+    &:hover {
+      color: #333333;
+    }
+  }
+  &.animate .outer-nav a {
+    opacity: 1;
+    transform: translateX(0) translateZ(0);
+    &:nth-child(2) {
+      transition-delay: 0.04s;
+    }
+    &:nth-child(3) {
+      transition-delay: 0.08s;
+    }
+    &:nth-child(4) {
+      transition-delay: 0.12s;
+    }
+    &:nth-child(5) {
+      transition-delay: 0.16s;
+    }
+    &:nth-child(6) {
+      transition-delay: 0.2s;
+    }
+    &:nth-child(7) {
+      transition-delay: 0.24s;
+    }
+  }
+}
+
+/* Effect Rotate Right */
+
+.effect-rotateleft {
+  background: white;
+  .container {
+    transition: transform 0.4s;
+    transform-origin: 0% 50%;
+    &::after {
+      background: rgba(255, 255, 255, 0.6);
+    }
+  }
+  &.animate .container {
+    transform: translateZ(-1800px) translateX(-50%) rotateY(45deg);
+  }
+}
+
+.no-csstransforms3d .effect-rotateleft.animate .container {
+  left: -75%;
+}
+
+.effect-rotateleft {
+  .outer-nav a {
+    opacity: 0;
+    transform: translateX(350px) translateZ(-1000px);
+    transition: transform 0.4s, opacity 0.4s;
+  }
+  &.animate .outer-nav a {
+    opacity: 1;
+    transform: translateX(0) translateZ(0);
+    &:nth-child(2) {
+      transition-delay: 0.04s;
+    }
+    &:nth-child(3), &:nth-child(4) {
+      transition-delay: 0.08s;
+    }
+    &:nth-child(5) {
+      transition-delay: 0.16s;
+    }
+    &:nth-child(6) {
+      transition-delay: 0.2s;
+    }
+    &:nth-child(7) {
+      transition-delay: 0.24s;
+    }
+  }
+}
+
+/* Effect Rotate Right */
+
+.effect-rotateright {
+  background: white;
+  .container {
+    transition: all 0.4s;
+    transform-origin: 0% 50%;
+    &::after {
+      background: rgba(255, 255, 255, 0.6);
+    }
+  }
+  &.animate .container {
+    transform: translateZ(-1500px) translateX(20%) rotateY(-35deg);
+  }
+}
+
+.no-csstransforms3d .effect-rotateright.animate .container {
+  left: -75%;
+}
+
+.effect-rotateright {
+  .outer-nav a {
+    opacity: 0;
+    transform: translateX(350px) translateZ(-1000px);
+    transition: transform 0.4s, opacity 0.4s;
+  }
+  &.animate .outer-nav a {
+    opacity: 1;
+    transform: translateX(0) translateZ(0);
+    &:nth-child(2) {
+      transition-delay: 0.04s;
+    }
+    &:nth-child(3), &:nth-child(4) {
+      transition-delay: 0.08s;
+    }
+    &:nth-child(5) {
+      transition-delay: 0.16s;
+    }
+    &:nth-child(6) {
+      transition-delay: 0.2s;
+    }
+    &:nth-child(7) {
+      transition-delay: 0.24s;
+    }
+  }
+}
+
+/* Effect Move Down */
+
+.effect-movedown {
+  background: #34495e;
+  .container {
+    transition: transform 0.4s;
+    transform-origin: 50% 50%;
+    &::after {
+      background: rgba(52, 73, 94, 0.5);
+    }
+  }
+  &.animate .container {
+    transform: translateY(100%) translateZ(-1500px);
+  }
+}
+
+.no-csstransforms3d .effect-movedown.animate .container {
+  top: 75%;
+}
+
+.effect-movedown {
+  .outer-nav a {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: transform 0.4s, opacity 0.4s;
+    &:hover {
+      color: #ed8151;
+    }
+  }
+  &.animate .outer-nav a {
+    opacity: 1;
+    transform: translateY(0);
+    &:nth-child(2) {
+      transition-delay: 0.04s;
+    }
+    &:nth-child(3) {
+      transition-delay: 0.08s;
+    }
+    &:nth-child(4) {
+      transition-delay: 0.12s;
+    }
+    &:nth-child(5) {
+      transition-delay: 0.16s;
+    }
+    &:nth-child(6) {
+      transition-delay: 0.2s;
+    }
+    &:nth-child(7) {
+      transition-delay: 0.24s;
+    }
+  }
+}
+
+/* Effect Rotate Top */
+
+.effect-rotatetop {
+  background: #edcdbb;
+  .container {
+    transition: transform 0.4s;
+    transform-origin: 50% 50%;
+    &::after {
+      background: rgba(94, 59, 43, 0.6);
+    }
+  }
+  &.animate .container {
+    transform: translateZ(-1500px) translateY(-50%) rotateX(-45deg);
+  }
+}
+
+.no-csstransforms3d .effect-rotatetop.animate .container {
+  top: -75%;
+}
+
+.effect-rotatetop {
+  .outer-nav a {
+    opacity: 0;
+    color: #ed8151;
+    transform: translateY(200px) translateZ(-1000px);
+    transition: transform 0.4s, opacity 0.4s;
+    &:hover {
+      color: #777777;
+    }
+  }
+  &.animate .outer-nav a {
+    opacity: 1;
+    transform: translateY(0) translateZ(0);
+    &:nth-child(2) {
+      transition-delay: 0.04s;
+    }
+    &:nth-child(3) {
+      transition-delay: 0.08s;
+    }
+    &:nth-child(4) {
+      transition-delay: 0.12s;
+    }
+    &:nth-child(5) {
+      transition-delay: 0.16s;
+    }
+    &:nth-child(6) {
+      transition-delay: 0.2s;
+    }
+    &:nth-child(7) {
+      transition-delay: 0.24s;
+    }
+  }
+}
+
+/* Effect Lay Down */
+
+.effect-laydown {
+  background: #b8b6b4;
+  .container {
+    transition: transform 0.4s;
+    transform-origin: 50% 150%;
+  }
+  &.animate .container {
+    transform: translateZ(-1500px) rotateX(80deg);
+  }
+}
+
+.no-csstransforms3d .effect-laydown.animate .container {
+  top: 75%;
+}
+
+.effect-laydown {
+  .outer-nav a {
+    opacity: 0;
+    transform: translateY(-200px) translateZ(-1000px);
+    transition: transform 0.4s, opacity 0.4s;
+  }
+  &.animate .outer-nav a {
+    opacity: 1;
+    transform: translateY(0) translateZ(0);
+    &:nth-child(7) {
+      transition-delay: 0s;
+    }
+    &:nth-child(6) {
+      transition-delay: 0.04s;
+    }
+    &:nth-child(5) {
+      transition-delay: 0.08s;
+    }
+    &:nth-child(4) {
+      transition-delay: 0.12s;
+    }
+    &:nth-child(3) {
+      transition-delay: 0.16s;
+    }
+    &:nth-child(2) {
+      transition-delay: 0.2s;
+    }
+    &:first-child {
+      transition-delay: 0.24s;
+    }
+  }
+}
+
+/* Media Queries */
+@media screen and (max-width: 77em) {
+  .outer-nav {
+    &.top {
+      top: 15%;
+    }
+    &.bottom {
+      bottom: 15%;
+    }
+  }
+}
+
+@media screen and (max-width: 36.625em), screen and (max-height: 41.75em) {
+  .outer-nav {
+    &.top {
+      top: 5%;
+    }
+    &.bottom {
+      bottom: 5%;
+    }
+    &.horizontal {
+      font-size: 1.7em;
+      width: 6.2em;
+      a {
+        display: block;
+        text-align: left;
+      }
+    }
+  }
+  /* Special Case */
+  .effect-rotatetop .outer-nav.horizontal {
+    width: 95%;
+    bottom: auto;
+    top: 50%;
+    a {
+      display: inline-block;
+    }
+  }
+}
+
+@media screen and (max-width: 31em), screen and (max-height: 36.2em) {
+  .outer-nav {
+    &.horizontal, &.vertical {
+      font-size: 1.2em;
+      width: 6.8em;
+    }
+    &.right {
+      right: auto;
+      left: 50%;
+    }
+  }
+}
+
+@media screen and (max-height: 31.6em) {
+  .outer-nav a {
+    margin-bottom: 20px;
+  }
+}
+
+.container-viewport {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 0px 16px #00c7f0;
+  transition: all 0.4s;
+}
+
+.modalview {
+  .container-viewport {
+    overflow: hidden;
+    height: 100vh;
+  }
+}
