@@ -12,7 +12,7 @@ html(lang="ru")
         .container-viewport
           .container-wrapper
             
-            button#showMenu.hidden Show Menu
+            button#showMenu.d-none Show Menu
             
             include ./_include/_header
             
@@ -173,7 +173,7 @@ html(lang="ru")
             include ./_include/_footer
             div(style="background: #000; height: 1000px")
                   
-      nav.outer-nav.left.hidden
+      nav.outer-nav.left.d-none
         .outer-nav__phones 0 800 987 65 43
         .outer-nav__links
           a(href="#!") главная
@@ -185,14 +185,6 @@ html(lang="ru")
           a(href="#!") контакты
         .outer-nav__share share
     
-    
-    //[if gte IE 9]
-      <script src='./js/libs/html5shiv/es5-shim.min.js'>
-      <script src='./js/libs/html5shiv/html5shiv.min.js'>
-      <script src='./js/libs/html5shiv/html5shiv-printshiv.min.js'>
-      <script src='./js/libs/html5shiv/respond.min.js'><![endif]
-        
     // Load Scripts
-    script(src="./js/libs.js")
     include ./_include/_footer-js
     script(src="./js/common.js")

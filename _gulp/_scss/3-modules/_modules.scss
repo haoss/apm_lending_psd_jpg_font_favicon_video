@@ -33,7 +33,7 @@
     justify-content: space-between;
     padding-bottom: 35px;
     &-block {
-      font-size: 14px;
+      font-size: rem(14px);
       color: $primary-color;
       p {
         line-height: 22px;
@@ -49,7 +49,7 @@
     &-link {
       color: $color-blue;
       text-transform: uppercase;
-      font-size: 20px;
+      font-size: rem(20px);
       text-decoration: none;
       display: inline-block;
       border-bottom: 1px dotted $color-blue;
@@ -83,7 +83,7 @@
     top: 0;
     transform: translateY(-50%);
     text-align: center;
-    font-size: 50px;
+    font-size: rem(50px);
     font-family: $font-intro;
     & > span {
       display: inline-block;
@@ -141,7 +141,7 @@
           }
           &-number {
             &--1 {
-              font-size: 0;
+              font-size: rem(0px);
               &::after {
                 display: inline-block;
               }
@@ -161,7 +161,7 @@
           }
           &-number {
             &--1, &--2 {
-              font-size: 0;
+              font-size: rem(0px);
               &::after {
                 display: inline-block;
               }
@@ -181,7 +181,7 @@
           }
           &-number {
             &--1, &--2, &--3 {
-              font-size: 0;
+              font-size: rem(0px);
               &::after {
                 display: inline-block;
               }
@@ -216,7 +216,7 @@
       z-index: 5;
       text-align: center;
       color: #f0f2f3;
-      font-size: 20px;
+      font-size: rem(20px);
       text-transform: uppercase;
       font-family: $font-intro;
       top: 0;
@@ -225,7 +225,7 @@
       &::after {
         content: "\f122";
         font-family: $font-ionicons;
-        font-size: 20px;
+        font-size: rem(20px);
         color: $color-blue;
         display: none;
       }
@@ -240,7 +240,7 @@
       }
     }
     &-info {
-      font-size: 16px;
+      font-size: rem(16px);
       height: 76px;
       line-height: 76px;
       font-weight: 400;
@@ -252,9 +252,9 @@
   padding-top: 115px;
   padding-bottom: 110px;
   &__content {
-    font-family: $font-roboto-light;
-    font-size: 14px;
+    font-size: rem(14px);
     max-width: 390px;
+    font-weight: 300;
     ul {
       padding: 0;
       margin: 0;
@@ -271,7 +271,7 @@
           left: 0;
           top: 5px;
           line-height: 1;
-          font-size: 14px;
+          font-size: rem(14px);
           color: $color-blue;
         }
       }
@@ -344,7 +344,7 @@
         position: absolute;
         right: 0;
         top: 0;
-        font-size: 14px;
+        font-size: rem(14px);
         .span {
           position: absolute;
           left: -21px;
@@ -353,7 +353,7 @@
         }
         .strong {
           color: $color-white;
-          font-size: 90px;
+          font-size: rem(90px);
           line-height: 0.7;
           font-family: $font-intro;
           display: block;
@@ -366,8 +366,8 @@
           position: absolute;
           right: -24px;
           bottom: 7px;
-          font-size: 40px;
-          font-family: $font-roboto-light;
+          font-size: rem(40px);
+          font-weight: 300;
           color: $color-blue;
           line-height: 0.6;
         }
@@ -411,9 +411,9 @@
 
 .p {
   &__introtext {
-    font-size: 16px;
-    font-family: $font-roboto-medium;
+    font-size: rem(16px);
     line-height: 24px;
+    font-weight: 500;
   }
 }
 
@@ -428,7 +428,7 @@
     background: $color-blue;
     color: $color-white;
     font-family: $font-intro;
-    font-size: 20px;
+    font-size: rem(20px);
     margin: 0 0 30px -60px;
     width: 563px;
     padding: 21px 5px;
@@ -443,7 +443,7 @@
       padding: 40px 40px 55px 65px;
     }
     &-row {
-      font-family: $font-roboto-light;
+      font-weight: 300;
       margin-bottom: 25px;
       &:last-child {
         margin-bottom: 0;
@@ -468,13 +468,13 @@
         }
       }
       span {
-        font-size: 28px;
+        font-size: rem(28px);
         text-transform: uppercase;
       }
     }
   }
   &__content {
-    font-size: 14px;
+    font-size: rem(14px);
     padding-left: 50px;
     padding-right: 45px;
     p {
@@ -483,15 +483,15 @@
     }
   }
   &__info {
-    font-size: 16px;
-    font-family: $font-roboto-medium;
+    font-size: rem(16px);
+    font-weight: 500;
     text-transform: uppercase;
     max-width: 325px;
     line-height: 24px;
     margin-top: 15px;
     strong {
       color: $color-blue;
-      font-size: 30px;
+      font-size: rem(30px);
       font-family: $font-intro;
       white-space: nowrap;
     }

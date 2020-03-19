@@ -1,21 +1,37 @@
-@import "bourbon";
-@import "neat";
-@import "bootstrap";
 
-@import "1-base/font.scss";
-@import "1-base/sprite.scss";
-@import "1-base/variables.scss";
-@import "1-base/normalize.scss";
-@import "1-base/base.scss";
+$root-font-size: 16px;
+$grid-columns: 12;
+$grid-gutter-width: 30px;
 
-@import "2-layout/buttons.scss";
-@import "2-layout/forms.scss";
-@import "2-layout/menu.scss";
-@import "2-layout/header.scss";
-@import "2-layout/footer.scss";
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
 
-@import "3-modules/components.scss";
-@import "3-modules/modules.scss";
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px
+);
 
-@import "4-utils/clear.scss";
-@import "4-utils/media-queries.scss";
+@import "node_modules/bootstrap/scss/bootstrap.scss";
+@import "1-base/_mixin.scss";
+@import "1-base/_variables.scss";
+@import "1-base/_font.scss";
+@import "1-base/_base.scss";
+
+@import "2-layout/_buttons.scss";
+@import "2-layout/_forms.scss";
+@import "2-layout/_menu.scss";
+@import "2-layout/_header.scss";
+@import "2-layout/_footer.scss";
+
+@import "3-modules/_components.scss";
+@import "3-modules/_modules.scss";
+
+@import "4-utils/_clear.scss";
+@import "4-utils/_media-queries.scss";

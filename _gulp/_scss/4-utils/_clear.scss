@@ -1,5 +1,6 @@
 /* clear */
-%clear, .clear-hr {
+%clear,
+.clear-hr {
   background: none !important;
   border: 0 !important;
   clear: both !important;
@@ -12,7 +13,7 @@
 }
 
 @for $i from 0 through 100 {
-  @if $i == 0 {
+  @if $i==0 {
     .clear {
       @extend %clear;
     }
