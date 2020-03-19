@@ -5,17 +5,15 @@ $grid-gutter-width: 30px;
 
 $grid-breakpoints: (
   xs: 0,
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px
+  sm: 768px,
+  md: 992px,
+  lg: 1200px
 );
 
 $container-max-widths: (
-  sm: 540px,
-  md: 720px,
-  lg: 960px,
-  xl: 1140px
+  sm: 720px,
+  md: 960px,
+  lg: 1140px
 );
 
 @import "node_modules/bootstrap/scss/bootstrap.scss";
