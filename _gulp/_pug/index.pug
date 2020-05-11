@@ -17,16 +17,50 @@ html(lang="ru")
             include ./_include/_header
             
             .content__container
-            
+
+              // Register
               section.section.register
-                .section__container.hidden-xs
-                  h2 Зарегистрироваться на сайте
+                #scene.register__layer
+                  img(src="./img/img-layer-1.png", alt="" data-depth="0.2").img1
+                  img(src="./img/img-layer-2.png", alt="" data-depth="0.2").img2
+                  img(src="./img/img-layer-3.png", alt="" data-depth="0.4").img3
+                  img(src="./img/img-layer-4.png", alt="" data-depth="0.4").img4
+                  img(src="./img/img-layer-5.png", alt="" data-depth="0.2").img5
+                  img(src="./img/img-layer-6.png", alt="" data-depth="0.3").img6
+                  img(src="./img/img-layer-7.png", alt="" data-depth="0.2").img7
+                .section__container
+
+                  .register__slider
+                    img(src="./img/apm.png", alt="").register__slider-apm
+                    .register__slider-round
+                      div
+                      div
+                      div
+                    .main-slider
+                      .main-slider__block
+                        .main-slider__block-wrapper
+                          div
+                            .main-slider__title
+                              strong Запчасти
+                              | для японских автомобилей
+                            .main-slider__content
+                              p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+                          div
+                            .main-slider__img
+                              img(src="./tmp/img-slider-1.png", alt="")
+                      .main-slider__block
+                        .main-slider__block-wrapper
+                          div
+                            .main-slider__title
+                              strong Big
+                              | choice of OEM brands
+                            .main-slider__content
+                              p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+                          div
+                            .main-slider__img
+                              img(src="./tmp/img-slider-2.png", alt="")
                   
-                  .row
-                    .col-md-4 1
-                    .col-md-3 2
-                    .col-md-5 3
-                  
+              // Welcome
               section.section.welcome
                 .section__container
                   
@@ -54,11 +88,12 @@ html(lang="ru")
                           br
                           | и настроены на комфортное и взаимовыгодное сотрудничество. 
 
-                  
+              // About
               section.section.about
                 .section__container
                   h2 О компании в цифрах
                   
+              // Availability
               section.section.availability
                 .section__container
                   
@@ -105,7 +140,8 @@ html(lang="ru")
                               .span Немецкие автомобили - 
                                 strong 1
                                 | %
-                  
+              
+              // Steps
               section.section.steps
                 .section__container
                   
@@ -124,45 +160,45 @@ html(lang="ru")
                         .steps__content-number.steps__content-number--4(data-text='Получаем посылку') 04
                       .steps__content-info Открываем сайт
                       
-                      a(href="#!" data-step='1').btn#stepsBtn Заполнить
+                      button(type="button" data-step='1').btn#stepsBtn Заполнить
                   
+              // What say about us
               section.section.what-say
                 .section__container
                   h2 что о нас говорят
                   
-              section.section.contacts.no--p
+              // Contacts
+              section.section.contacts
                 .section__container
                   
                   .section__head
                     .h1 наши КОнтакты
                   
-                  .row
-                    .col-lg-8.col-lg-push-2.col-sm-10.col-sm-push-1
-                      .contacts__info
-                        div
-                          .contacts__info-block
-                            a(href="#!").contacts__info-link
-                              i.ion-android-pin
-                              span центральный офис
-                            p 123456, г. Москва, ул. Первая деловая, 1
-                              br
-                              a(href="#!") 8 (495) 637-12-34
-                              br
-                              a(href="#!") 8 (495) 637-12-35
-                              br
-                              a(href="#!") email: info@apm.store
-                        div
-                          .contacts__info-block
-                            a(href="#!").contacts__info-link
-                              i.ion-android-pin
-                              span Основной склад в ОАЕ
-                            p Аль Квос Индастриал Арея 4
-                              br
-                              | منطقة القوز الصناعية
-                              br
-                              a(href="#!") +971 4 408 9999
-                              br
-                              a(href="#!") email: sklad@apm.store
+                  .contacts__info
+                    div
+                      .contacts__info-block
+                        a(href="#!").contacts__info-link
+                          i.ion-android-pin
+                          span центральный офис
+                        p 123456, г. Москва, ул. Первая деловая, 1
+                          br
+                          a(href="#!") 8 (495) 637-12-34
+                          br
+                          a(href="#!") 8 (495) 637-12-35
+                          br
+                          a(href="#!") email: info@apm.store
+                    div
+                      .contacts__info-block
+                        a(href="#!").contacts__info-link
+                          i.ion-android-pin
+                          span Основной склад в ОАЕ
+                        p Аль Квос Индастриал Арея 4
+                          br
+                          | منطقة القوز الصناعية
+                          br
+                          a(href="#!") +971 4 408 9999
+                          br
+                          a(href="#!") email: sklad@apm.store
                           
                 .section__container.section__container--fullwidth
                   .contacts__map

@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 // Document ready
 $(document).on('ready', function(){
@@ -55,6 +55,14 @@ $(document).on('ready', function(){
   });
 
   steps();
+
+  // parallax
+  $('#scene').get(0);
+  var parallaxInstance = new Parallax(scene, {
+    relativeInput: true,
+    scalarX: 12,
+    scalarY: 12
+  });
 
   // Chrome Smooth Scroll
   try {
@@ -140,7 +148,7 @@ function simpleForm(form, callback) {
   });
 }
 
-function steps(){
+function steps() {
   var btn = $('#stepsBtn');
   var count = btn.data('step');
   var body = $('.steps__content-step');
@@ -149,7 +157,6 @@ function steps(){
   var img = $('.steps__content-img img').attr('src', './img/step-img-' + count + '.png')
 
   btn.on('click', function(e){
-    e.preventDefault();
     if (count >= 1 && count <= 3) {
       body.removeClass('steps__content-step--active' + count);
       count++;
@@ -165,5 +172,5 @@ function steps(){
     }
 
     $(this).attr('data-step', count);
-  })
+  });
 }

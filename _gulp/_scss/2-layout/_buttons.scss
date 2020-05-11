@@ -23,19 +23,25 @@
   font-family: $font-intro;
   box-shadow: 0 6px 20px rgba($color-blue, 0.56);
   transition: box-shadow 0.35s, background 0.35s;
-  &:hover, &:focus, &:active {
+  &:hover {
     box-shadow: 0 0 0px rgba($color-blue, 0.56);
     background: $color-lightblue;
     outline: none;
+    color: $color-white;
+  }
+  &:active {
     color: $color-white;
   }
   &--white {
     background: $color-white;
     color: $color-blue;
     box-shadow: 0 6px 20px rgba($color-white, 0.86);
-    &:hover, &:focus, &:active {
+    &:hover {
       color: $color-blue;
       box-shadow: 0 0 0px rgba($color-white, 0.86);
+    }
+    &:active {
+      color: $color-blue;
     }
   }
 }
